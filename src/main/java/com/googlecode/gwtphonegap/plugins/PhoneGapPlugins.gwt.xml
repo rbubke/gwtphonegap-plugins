@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0.3//EN"
+        "http://google-web-toolkit.googlecode.com/svn/tags/2.0.3/distro-source/core/src/gwt-module.dtd">
+<module>
+
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.googlecode.gwtphonegap.PhoneGap"/>
+    <inherits name="com.google.common.collect.Collect"/>
+
+    <!-- Facebook -->
+    <replace-with
+            class="com.googlecode.gwtphonegap.plugins.client.facebook.impl.FacebookBrowserImpl">
+        <when-type-is class="com.googlecode.gwtphonegap.plugins.client.facebook.Facebook"/>
+    </replace-with>
+    <replace-with class="com.googlecode.gwtphonegap.plugins.client.facebook.impl.FacebookJsImpl">
+        <when-type-is class="com.googlecode.gwtphonegap.plugins.client.facebook.Facebook"/>
+        <all>
+            <when-property-is name="phonegap.env" value="yes"/>
+        </all>
+    </replace-with>
+
+
+</module>
